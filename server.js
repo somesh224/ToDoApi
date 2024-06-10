@@ -21,7 +21,7 @@ connectDB();
 
 //GET, POST, DELETE, PUT
 
-app.use('/api/todo/auth', require('./routes/User'));
+app.use('/api/todo/auth', require('./routes/user'));
 
 const PORT = process.env.PORT || 3000;
 
