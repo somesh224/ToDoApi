@@ -5,13 +5,13 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const app = express();
 
-app.use((req, res, next) => {
-    console.log("middleware run");
-    req.title = "mishra";
-    next();
-});
 
 app.use(morgan('dev'));
+
+app.use(express.json({}));
+app.use(express.json({
+    extended: true
+}));
 
 dotenv.config({
     path: './config/config.env'
@@ -21,13 +21,7 @@ connectDB();
 
 //GET, POST, DELETE, PUT
 
-app.get('/todo', (req, res) => {
-
-    res.status(200).json({
-        "name": "somesh",
-        "title": req.title
-    });
-});
+app.use('/api/todo/auth', require('./routes/User'));
 
 const PORT = process.env.PORT || 3000;
 
