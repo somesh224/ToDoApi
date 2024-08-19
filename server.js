@@ -16,6 +16,10 @@ app.use(express.json({
     extended: true
 }));
 
+dotenv.config({
+    path: './config/config.env'
+});
+
 connectDB();
 
 //GET, POST, DELETE, PUT
