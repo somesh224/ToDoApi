@@ -24,7 +24,7 @@ router.get('/', user_jwt, async(req, res, next) => {
 })
 
 router.post('/register',async (req, res, next) => {
-    const {username, email, password} = req.body;
+    const { username, email, password } = req.body;
 
     try {
         let user_exist = await User.findOne({ email: email });

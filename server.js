@@ -1,3 +1,7 @@
+dotenv.config({
+    path: './config/config.env'
+});
+
 const express = require('express');
 const colors = require('colors');
 const morgan = require('morgan');
@@ -13,9 +17,7 @@ app.use(express.json({
     extended: true
 }));
 
-dotenv.config({
-    path: './config/config.env'
-});
+
 
 connectDB();
 
