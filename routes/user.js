@@ -26,6 +26,10 @@ router.get('/', user_jwt, async(req, res, next) => {
 router.post('/register',async (req, res, next) => {
     const { username, email, password } = req.body;
 
+    if (!password) {
+        return res.status(400).json({ msg: "Password is required" });
+    }
+
     try {
         let user_exist = await User.findOne({ email: email });
         if (user_exist) {
